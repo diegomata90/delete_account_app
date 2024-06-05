@@ -7,35 +7,42 @@ document
     var email = document.getElementById("email").value;
     var btn = document.getElementById("btn-submit");
 
-    // Configuración del correo electrónico
-    var emailParams = {
-      user_name: name,
-      user_email: email,
-    };
-
     //Configuracion boton
     btn.textContent = "Enviando...";
     btn.disabled = true;
 
     // Configuración de EmailJS
     const serviceID = "default_service";
-    const templateID = "template_qw7r5bo";
+    const templateIDAutoreply = "template_qw7r5bo";
+    const templateIDNotification = "template_5f5rs7h";
 
-    //Ejemplo sin enviar
-    // const serviceID = "";
-    // const templateID = "";
+    //Configuracion de Correo
+    var emailParams = {
+      from_name: name,
+      to_email: email,
+    };
 
-    // Enviar el correo usando EmailJS
-    emailjs.send(serviceID, templateID, emailParams).then(
+    // Enviar el correo usando EmailJS AUTOREPLY
+    emailjs.send(serviceID, templateIDAutoreply, emailParams).then(
       function (response) {
-        console.log("SUCCESS!", response.status, response.text);
-        alert(
-          "Solicitud de eliminación de cuenta " +
-            email +
-            " enviada correctamente.Por favor, revisa tu correo para confirmar."
+        console.log("SUCCESS! Autoreply", response.status, response.text);
+
+        // Enviar el correo usando EmailJS Notification
+        emailjs.send(serviceID, templateIDNotification, emailParams).then(
+          function (response) {
+            console.log("SUCCESS! Notify", response.status, response.text);
+          },
+          function (error) {
+            console.error("FAILED...", error);
+            console.error("Ocurrió un error al enviar la notificacion.");
+          }
         );
+
         btn.disabled = false;
         btn.textContent = "Solicitar eliminación de cuenta";
+        alert(
+          "Se ha enviado una solicitud de eliminación de cuenta. Se le estara contactando a la brevedad."
+        );
       },
       function (error) {
         console.error("FAILED...", error);
