@@ -6,7 +6,7 @@
 
 :root {
   font-size: 16px;
-  --colornav: #9b9b9b;
+  --colornav: #d3d3d3;
   --colorprimary: #333333;
   --colorsecondary: #666666;
   --colorbackground: #ffffff;
@@ -19,12 +19,12 @@ body {
   background-color: var(--colorbackground);
   font-family: Arial, sans-serif;
   color: var(--colorprimary);
-  line-height: 1.6;
+  line-height: 1.3;
 }
 
 header {
   background-color: var(--colornav);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 nav {
@@ -33,22 +33,28 @@ nav {
   align-items: center;
 }
 
+nav h1 {
+  color: var(--colorprimary);
+  margin-left: 1rem;
+}
+
 .logo {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.8rem;
 }
 
 .container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
   background-color: var(--colorbackground);
 }
 
 h1,
 h2 {
   color: var(--colorprimary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 p {
@@ -123,5 +129,9 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  color: #fff;
+  color: #ffffff;
+}
+
+footer p {
+  color: var(--colorprimary);
 }
