@@ -7,3 +7,7 @@ Este sitio elimina la cuenta usuario administrador de la aplicación Iglesia Nue
 - Envio de correo para eliminación de cuenta administrador
 
 ![Captura Pagina](https://raw.githubusercontent.com/diegomata90/delete_account_app/main/img/CapturaPagina.png)
+
+## Link Sitio
+
+Este es el link del [PAGINA PUBLICADA](https://eliminarcuentanuevavidaapp.netlify.app/).
